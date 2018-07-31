@@ -2,6 +2,8 @@
 applications:
 - name: pal-tracker
   path: build/libs/pal-tracker.jar
-  random-route: true
+  route: kw-pal-tracker-courteous-oryx.apps.evans.pal.pivotal.io
   env:
-    WELCOME_MESSAGE: Hello from Cloud Foundry
+    WELCOME_MESSAGE: Hello from env in manifest
+  review:
+    WELCOME_MESSAGE: Hello from review in manifest
