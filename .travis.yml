@@ -15,7 +15,7 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
-        - git config --local user.name "krishnaw"
+        - git config --local user.name "Krishna"
         - git config --local user.email "krishna.wudaru@gmail.com"
         - git tag -f $RELEASE_TAG
       deploy:
@@ -32,8 +32,8 @@ jobs:
         - echo "Deploying $RELEASE_TAG to review"
       deploy:
         provider: cloudfoundry
-        api: https://api.sys.evans.pal.pivotal.io
-        username: krishna.wudaru@albertsons.com
-        password: hnremct3
-        organization: krishna-wudaru
+        api: $CF_API_URL
+        username: $CF_USERNAME
+        password: $CF_PASSWORD
+        organization: $CF_ORG
         space: review
