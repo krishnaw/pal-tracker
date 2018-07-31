@@ -25,6 +25,8 @@ public class TimeEntryControllerTest {
     public void setUp() throws Exception {
         timeEntryRepository = mock(TimeEntryRepository.class);
         controller = new TimeEntryController(timeEntryRepository);
+        TimeEntry expectedResult = new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
+
     }
 
     @Test
@@ -83,7 +85,7 @@ public class TimeEntryControllerTest {
         assertThat(response.getBody()).isEqualTo(expected);
     }
 
-    @Test
+   @Test
     public void testUpdate() throws Exception {
         TimeEntry expected = new TimeEntry(1L, 987L, 654L, LocalDate.parse("2017-01-07"), 4);
         doReturn(expected)
@@ -109,8 +111,29 @@ public class TimeEntryControllerTest {
 
     @Test
     public void testDelete() throws Exception {
+
+/*
+        TimeEntry timeEntry = new TimeEntry(2L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
+
+        ResponseEntity createdResponse = controller.create(timeEntry);
+
+        assertThat(createdResponse.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+
+
+        ResponseEntity<TimeEntry> readResponse = controller.read(2L);
+        assertThat(readResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+
+        ResponseEntity<TimeEntry> deleteResponse = controller.delete(2L);
+        verify(timeEntryRepository).delete(2L);
+
+        assertThat(deleteResponse.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+
+
+*/
         ResponseEntity<TimeEntry> response = controller.delete(1L);
         verify(timeEntryRepository).delete(1L);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
+
     }
 }
