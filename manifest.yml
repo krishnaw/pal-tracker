@@ -4,6 +4,4 @@ applications:
   path: build/libs/pal-tracker.jar
   route: kw-pal-tracker-courteous-oryx.apps.evans.pal.pivotal.io
   env:
-    WELCOME_MESSAGE: Hello from env in manifest
-  review:
-    WELCOME_MESSAGE: Hello from review in manifest
+    WELCOME_MESSAGE: Hello from new review in manifest

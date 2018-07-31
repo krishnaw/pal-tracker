@@ -15,12 +15,12 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
-        - git config --local user.name "Krishna"
-        - git config --local user.email "krishna.wudaru@gmail.com"
+        - git config --local user.name "Travis CI"
+        - git config --local user.email "travis@example.com"
         - git tag -f $RELEASE_TAG
       deploy:
         provider: releases
-        api_key: cbe9477bebf63bbe5a9a3a46dab55d86e253b9d8
+        api_key: $GITHUB_OAUTH_TOKEN
         file: "build/libs/pal-tracker.jar"
         skip_cleanup: true
     - stage: deploy to review
